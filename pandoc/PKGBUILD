@@ -1,0 +1,22 @@
+# Maintainer: Lydéric Landry <lyderic@lyderic.com>
+pkgname=pandoc-lyderic
+pkgver=3.6.1
+pkgrel=1
+pkgdesc="Universal markup converter"
+arch=('x86_64')
+url="https://pandoc.org/"
+license=("GPL-2.0-or-later")
+provides=("pandoc" "pandoc-lua" "pandoc-server")
+conflicts=("pandoc" "pandoc-cli" "pandoc-lua" "pandoc-server")
+source=("https://github.com/jgm/pandoc/releases/download/${pkgver}/pandoc-${pkgver}-linux-amd64.tar.gz")
+sha256sums=('70241a3e8f0c2a30103d7954480025e547ed4f40b8cdce674cdf0be9f02bd5a3')
+options=("!debug")
+
+package() {
+	install -Dm755 "${srcdir}/pandoc-${pkgver}/bin/pandoc" "${pkgdir}/usr/bin/pandoc"
+	install -Dm755 "${srcdir}/pandoc-${pkgver}/bin/pandoc-lua" "${pkgdir}/usr/bin/pandoc-lua"
+	install -Dm755 "${srcdir}/pandoc-${pkgver}/bin/pandoc-server" "${pkgdir}/usr/bin/pandoc-server"
+	install -Dm644 "${srcdir}/pandoc-${pkgver}/share/man/man1/pandoc.1.gz" "${pkgdir}/usr/share/man/man1/pandoc.1.gz"
+	install -Dm644 "${srcdir}/pandoc-${pkgver}/share/man/man1/pandoc-lua.1.gz" "${pkgdir}/usr/share/man/man1/pandoc-lua.1.gz"
+	install -Dm644 "${srcdir}/pandoc-${pkgver}/share/man/man1/pandoc-server.1.gz" "${pkgdir}/usr/share/man/man1/pandoc-server.1.gz"
+}
