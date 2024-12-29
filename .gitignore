@@ -2,6 +2,8 @@
 *
 # Except gitignore of course
 !.gitignore
+# Except the justfile
+!justfile
 # Except directories
 !*/
 # Except PKGBUILD files
