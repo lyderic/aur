@@ -1,13 +1,14 @@
 #Maintainer: Lydéric Landry <lyderic@lyderic.com>
 pkgname=emd-lyderic
 pkgver=0.1.6
-pkgrel=1
+pkgrel=2
 pkgdesc="Basic markdown viewer for the command line"
 arch=('x86_64')
 url='https://github.com/lyderic/emd'
 license=('MIT')
 provides=('emd')
 conflicts=('emd')
+depends=('less')
 source=("https://github.com/lyderic/emd/releases/download/v${pkgver}/emd-${pkgver}-linux-amd64.gz")
 sha256sums=('8d037a7f99dff47e838419eac9162bf06cab5cefae0a413742fd2c60bbba7cfa')
 
