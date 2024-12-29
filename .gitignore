@@ -1,0 +1,11 @@
+# Ignore everything
+*
+# Except gitignore of course
+!.gitignore
+# Except directories
+!*/
+# Except PKGBUILD files
+!PKGBUILD
+!**/PKGBUILD
+# Except markdown files
+!*.md
