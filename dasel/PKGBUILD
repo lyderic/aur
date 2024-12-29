@@ -10,7 +10,6 @@ provides=('dasel')
 conflicts=('dasel')
 source=("https://github.com/TomWright/dasel/releases/download/v${pkgver}/dasel_linux_amd64.gz")
 sha256sums=('ed162d52a7f490e78b490790d46524405a0117e14a7f0cd3177668d4f4e38bde')
-options=("!debug")
 
 package() {
 	install -Dm755 "${srcdir}/dasel_linux_amd64" "${pkgdir}/usr/bin/dasel"

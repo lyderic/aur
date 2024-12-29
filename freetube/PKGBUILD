@@ -14,7 +14,7 @@ freetubeAppImage="freetube_${pkgver}_amd64.AppImage"
 noextract=("${freetubeAppImage}")
 source=("https://github.com/FreeTubeApp/FreeTube/releases/download/v${pkgver}-beta/${freetubeAppImage}")
 sha256sums=('1db539c9148fe46938ef766840bdc70f606987f53fb2ad43774785a71c8a73db')
-options=("!strip" "!debug")
+options=("!strip")
 
 prepare() {
 	cd "${srcdir}"

@@ -1,7 +1,15 @@
+alias ls := list
+
 _listing:
 	@just --list --no-aliases --unsorted \
 		--list-heading=$'\e[34m{{justfile()}}\e[m\n' \
 		--list-prefix=' • ' | sed -e 's/ • \[/[/'
+
+# [ls] list *-lyderic packages
+list:
+	@pacman -Q | grep lyderic \
+		| sed 's/-lyderic/\x1b[2m-lyderic\x1b[0m/' \
+		| awk '{printf "• %-24.24s %s\n", $1, $2}'
 
 # build and install/update all *-lyderic packages
 deploy:

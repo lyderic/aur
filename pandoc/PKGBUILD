@@ -10,7 +10,6 @@ provides=("pandoc" "pandoc-lua" "pandoc-server")
 conflicts=("pandoc" "pandoc-cli" "pandoc-lua" "pandoc-server")
 source=("https://github.com/jgm/pandoc/releases/download/${pkgver}/pandoc-${pkgver}-linux-amd64.tar.gz")
 sha256sums=('70241a3e8f0c2a30103d7954480025e547ed4f40b8cdce674cdf0be9f02bd5a3')
-options=("!debug")
 
 package() {
 	install -Dm755 "${srcdir}/pandoc-${pkgver}/bin/pandoc" "${pkgdir}/usr/bin/pandoc"

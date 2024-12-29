@@ -14,7 +14,7 @@ koreaderAppImage="koreader-appimage-x86_64-linux-gnu-v${pkgver}.AppImage"
 noextract=("${koreaderAppImage}")
 source=("https://github.com/koreader/koreader/releases/download/v${pkgver}/${koreaderAppImage}")
 sha256sums=('8adff36575d752440d7d26512643385a7045184517d259c1318cf3c3e8076492')
-options=("!strip" "!debug")
+options=("!strip")
 
 prepare() {
 	cd "${srcdir}"

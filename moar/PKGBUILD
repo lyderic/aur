@@ -10,7 +10,6 @@ provides=('moar')
 conflicts=('moar')
 source=("https://github.com/walles/moar/releases/download/v${pkgver}/moar-v${pkgver}-linux-amd64")
 sha256sums=('b479cc5fa0be7ff9cd474ab3ef9f6283077cb22a263dbf514c801ec95badc47f')
-options=("!debug")
 
 package() {
 	install -Dm755 "${srcdir}/moar-v${pkgver}-linux-amd64" "${pkgdir}/usr/bin/moar"
