@@ -24,3 +24,17 @@ To remove package _foo_:
 ```bash
 $ sudo pacman -Rns foo
 ```
+
+# justfile
+
+The justfile provides a list of action (deploy, clean...) that can be performed on one package or **all** packages (`all` recipe). For example, to deploy package _foo_, run:
+
+```bash
+$ just deploy foo
+```
+
+To deploy all packages:
+
+```bash
+$ just all deploy
+```
