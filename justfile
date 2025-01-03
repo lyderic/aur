@@ -26,7 +26,7 @@ show $package:
 	name=$(awk -F= '/^pkgname=/ {print $2}' "${pkgbuild}")
 	version=$(awk -F= '/^pkgver=/ {print $2}' "${pkgbuild}")
 	echo -e "${name} v${version} "
-	pacman -Q "${package}-lyderic" > /dev/null && {
+	pacman -Q "${package}-lyderic" > /dev/null 2>&1 && {
 		ok installed
 	} || {
 		warn not installed
