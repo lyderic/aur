@@ -9,7 +9,7 @@ license=('MIT')
 provides=('sqlpage')
 conflicts=('sqlpage')
 source=("sqlpage-linux-${pkgver}.tgz::https://github.com/sqlpage/SQLPage/releases/download/v${pkgver}/sqlpage-linux.tgz")
-sha256sums=('SKIP')
+sha256sums=('a4aacfda4a25ee819e6439d334477eb9dec3b836943100da8a76ccfc70fdfd63')
 
 package() {
 	install -Dm755 "${srcdir}/sqlpage.bin" "${pkgdir}/usr/bin/sqlpage"
