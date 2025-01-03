@@ -1,0 +1,16 @@
+# Maintainer: Lydéric Landry <lyderic@lyderic.com>
+pkgname=litestream-lyderic
+pkgver=0.3.13
+pkgrel=1
+pkgdesc=" Streaming replication for SQLite"
+arch=('x86_64')
+url="https://sql-page.com/"
+license=('MIT')
+provides=('litestream')
+conflicts=('litestream')
+source=("https://github.com/benbjohnson/litestream/releases/download/v${pkgver}/litestream-v${pkgver}-linux-amd64.tar.gz")
+sha256sums=('eb75a3de5cab03875cdae9f5f539e6aedadd66607003d9b1e7a9077948818ba0')
+
+package() {
+	install -Dm755 "${srcdir}/litestream" "${pkgdir}/usr/bin/litestream"
+}
