@@ -21,7 +21,16 @@ all $action:
 
 # show package name and version
 show $package:
-	@head -3 "${package}/PKGBUILD" | grep -v '#' | awk -F= '{print $1": "$2}' | column -t
+	#!/bin/bash
+	pkgbuild="${package}/PKGBUILD"
+	name=$(awk -F= '/^pkgname=/ {print $2}' "${pkgbuild}")
+	version=$(awk -F= '/^pkgver=/ {print $2}' "${pkgbuild}")
+	echo -e "${name} v${version} "
+	pacman -Q "${package}-lyderic" > /dev/null && {
+		ok installed
+	} || {
+		warn not installed
+	}
 
 _get_packages:
 	#!/bin/bash
