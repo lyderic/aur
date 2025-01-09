@@ -8,9 +8,9 @@ url="https://caddyserver.com/"
 license=('Apache-2.0')
 provides=('caddy')
 conflicts=('caddy')
-source=("caddy-cloudflare-linux-${pkgver}.tgz::"https://caddyserver.com/api/download?os=linux&arch=amd64&p=github.com%2Fcaddy-dns%2Fcloudflare")
+source=("caddy-cloudflare-linux-amd64-${pkgver}::https://caddyserver.com/api/download?os=linux&arch=amd64&p=github.com%2Fcaddy-dns%2Fcloudflare")
 sha256sums=('558e9f4e063228db0e46f962cd270e9b38af3d61ee9eecf6ef1e177552f3c8c7')
 
 package() {
-	install -Dm755 "${srcdir}/caddy.bin" "${pkgdir}/usr/bin/caddy"
+	install -Dm755 "${srcdir}/caddy-cloudflare-linux-amd64-${pkgver}" "${pkgdir}/usr/bin/caddy"
 }
