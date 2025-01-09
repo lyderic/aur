@@ -9,14 +9,15 @@ _listing:
 list:
 	@pacman -Q | grep lyderic \
 		| sed 's/-lyderic/\x1b[2m-lyderic\x1b[0m/' \
-		| awk '{printf "• %-24.24s %s\n", $1, $2}'
+		| awk '{printf "• %-27s %s\n", $1, $2}'
 
-# do one of the actions on all packages
-all $action:
+# install the packages needed on a workstation
+install-workstation:
 	#!/bin/bash
-	for package in $(just _get_packages); do
+	for package in \
+		dasel duckdb emd freetube kepubify koreader moar pandoc sqlpage; do
 		printf "\e[45;93m %-32.32s\e[m\n" "${package}"
-		just "${action}" "${package}"
+		just deploy "${package}"
 	done
 
 # show package name and version

@@ -33,8 +33,8 @@ The justfile provides a list of action (deploy, clean...) that can be performed 
 $ just deploy foo
 ```
 
-To deploy all packages:
+To deploy or refresh all packages on a workstation
 
 ```bash
-$ just all deploy
+$ just install-workstation
 ```
