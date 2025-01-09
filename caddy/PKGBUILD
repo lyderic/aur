@@ -2,15 +2,20 @@
 pkgname=caddy-lyderic
 pkgver=2.9.1
 pkgrel=1
-pkgdesc="Fast and extensible multi-platform HTTP/1-2-3 web server with automatic HTTPS"
+pkgdesc="Fast and extensible web server with automatic HTTPS with Cloudflare DNS plugin"
 arch=('x86_64')
 url="https://caddyserver.com/"
 license=('Apache-2.0')
 provides=('caddy')
 conflicts=('caddy')
-source=("caddy-cloudflare-linux-amd64-${pkgver}::https://caddyserver.com/api/download?os=linux&arch=amd64&p=github.com%2Fcaddy-dns%2Fcloudflare")
+source=("caddy-cloudflare-linux-amd64-${pkgver}::https://caddyserver.com/api/download?os=linux&arch=amd64&p=github.com%2Fcaddy-dns%2Fcloudflare","caddy.service")
 sha256sums=('558e9f4e063228db0e46f962cd270e9b38af3d61ee9eecf6ef1e177552f3c8c7')
 
 package() {
 	install -Dm755 "${srcdir}/caddy-cloudflare-linux-amd64-${pkgver}" "${pkgdir}/usr/bin/caddy"
+	if ! id -u foo &>/dev/null || [ "$(id -u foo)" -ne 1000 ]; then
+		echo "Error: User 'foo' with UID 1000 does not exist."
+		return 1  # Exit with a non-zero status to indicate failure
+	fi
+	install -Dm644 "${srcdir}/caddy.service" "${pkgdir}/etc/systemd/system/caddy.service"
 }
