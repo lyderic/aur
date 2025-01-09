@@ -5,11 +5,11 @@ After=network.target network-online.target
 Requires=network-online.target
 
 [Service]
-User=unix
-Group=unix
+User=root
+Group=root
 WorkingDirectory=/home/unix/www
-ExecStart=/usr/bin/caddy run --environ --config /home/unix/www/Caddyfile
-ExecReload=/usr/bin/caddy reload --config /home/unix/www/Caddyfile --force
+ExecStart=/usr/bin/caddy run --config /home/unix/www/Caddyfile
+ExecReload=/usr/bin/caddy reload --config /home/unix/www/Caddyfile
 TimeoutStopSec=5s
 LimitNOFILE=1048576
 LimitNPROC=512
