@@ -10,7 +10,7 @@ provides=('caddy')
 conflicts=('caddy')
 source=("caddy-cloudflare-linux-amd64-${pkgver}::https://caddyserver.com/api/download?os=linux&arch=amd64&p=github.com%2Fcaddy-dns%2Fcloudflare" "caddy.service")
 sha256sums=('558e9f4e063228db0e46f962cd270e9b38af3d61ee9eecf6ef1e177552f3c8c7'
-            '2ce03322f270343991cf7e52db5a9a8dd3808bb96be13d09991a7ee89958b83f')
+            '5c36c8f734f482770207b969d6e43ae3fd862d8d86c339f8fa317b12faaddf53')
 
 package() {
 	install -Dm755 "${srcdir}/caddy-cloudflare-linux-amd64-${pkgver}" "${pkgdir}/usr/bin/caddy"
