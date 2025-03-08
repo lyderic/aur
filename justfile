@@ -15,7 +15,7 @@ list:
 install-workstation:
 	#!/bin/bash
 	for package in \
-		dasel duckdb emd freetube kepubify koreader moar pandoc sqlpage; do
+		dasel duckdb emd freetube kepubify koreader moar pandoc sqlpage wait4x; do
 		printf "\e[45;93m %-32.32s\e[m\n" "${package}"
 		just deploy "${package}"
 	done
