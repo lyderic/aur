@@ -11,14 +11,13 @@ list:
 		| sed 's/-lyderic/\x1b[2m-lyderic\x1b[0m/' \
 		| awk '{printf "• %-27s %s\n", $1, $2}'
 
-# install the packages needed on a workstation
-install-workstation:
-	#!/bin/bash
-	for package in \
-		dasel duckdb emd freetube kepubify koreader moar pandoc sqlpage wait4x; do
-		printf "\e[45;93m %-32.32s\e[m\n" "${package}"
-		just deploy "${package}"
-	done
+# install minimal set of packages
+install-minimal:
+	just deploy emd wait4x
+
+# install packages needed on a workstation
+install-workstation: install-minimal
+	just deploy dasel duckdb freetube kepubify koreader moar pandoc sqlpage 
 
 # show package name and version
 show $package:
@@ -41,8 +40,14 @@ _get_packages:
 	done
 
 # build and install/update <package>
-deploy $package:
-	@makepkg -D "${package}" -sic --needed
+deploy *$packages: _install_deps
+	#!/bin/bash
+	for package in ${packages} ; do
+		blue "[${package}]"
+		makepkg -D "${package}" -sic --needed
+	done
+@_install_deps:
+	sudo pacman -S --needed --noconfirm fakeroot > /dev/null 2>&1
 
 # update checksums in <package>
 checksums $package:
