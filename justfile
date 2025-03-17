@@ -39,7 +39,7 @@ _get_packages:
 		basename $(dirname "${path}")
 	done
 
-# build and install/update <package>
+# build and install/update <packages>
 deploy *$packages: _install_deps
 	#!/bin/bash
 	for package in ${packages} ; do
@@ -56,6 +56,14 @@ checksums $package:
 # remove everything in <package> except PKGBUILD
 clean $package: (_check_is_package package)
 	@find "${package}" -type f ! -name 'PKGBUILD' -exec rm -v "{}" \;
+
+# remove everything in all packages except PKGBUILD
+clean-all:
+	#!/bin/bash
+	for package in $(ls -d */) ; do
+		blue "[${package}]"
+		just clean "${package}"
+	done
 
 # certain operation are dangerous and should only be run if the
 # argument passed is actually a package and not some random dir
