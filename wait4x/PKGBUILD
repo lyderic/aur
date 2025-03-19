@@ -1,6 +1,6 @@
 # Maintainer: Lydéric Landry <lyderic@lyderic.com>
 pkgname=wait4x-lyderic
-pkgver=3.0.0
+pkgver=3.1.0
 pkgrel=1
 pkgdesc="Wait4X allows you to wait for a port or a service to enter the requested state"
 arch=('x86_64')
@@ -9,7 +9,7 @@ license=('Apache-2.0')
 provides=('wait4x')
 conflicts=('wait4x')
 source=("wait4x_cli-linux-amd64-${pkgver}.tar.gz::https://github.com/atkrad/wait4x/releases/download/v${pkgver}/wait4x-linux-amd64.tar.gz")
-sha256sums=('258b9d14a4918bc7a08ba563207fed95e8ba9d908aeab632ba7bc5586141a92a')
+sha256sums=('bbec1a95fb26a56617f5983dc53acfc1134117fdea99ff883d3c0a26c8a29d5c')
 
 package() {
 	install -Dm755 "$srcdir/wait4x" "$pkgdir/usr/bin/wait4x"
