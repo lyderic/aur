@@ -1,6 +1,6 @@
 #Maintainer: Lydéric Landry <lyderic@lyderic.com>
 pkgname=emd-lyderic
-pkgver=0.1.6
+pkgver=0.1.8
 pkgrel=2
 pkgdesc="Basic markdown viewer for the command line"
 arch=('x86_64')
@@ -10,7 +10,7 @@ provides=('emd')
 conflicts=('emd')
 depends=('less')
 source=("https://github.com/lyderic/emd/releases/download/v${pkgver}/emd-${pkgver}-linux-amd64.gz")
-sha256sums=('8d037a7f99dff47e838419eac9162bf06cab5cefae0a413742fd2c60bbba7cfa')
+sha256sums=('53cbc961705ea3f8d7db6f5fed963209bb4638577aee7de6a2886709fa2fc283')
 
 package() {
 	install -Dm755 "${srcdir}/emd-${pkgver}-linux-amd64" "${pkgdir}/usr/bin/emd"
