@@ -11,12 +11,8 @@ list:
 		| sed 's/-lyderic/\x1b[2m-lyderic\x1b[0m/' \
 		| awk '{printf "• %-27s %s\n", $1, $2}'
 
-# install minimal set of packages
-install-minimal:
-	just deploy emd wait4x
-
 # install packages needed on a workstation
-install-workstation: install-minimal
+install-workstation:
 	just deploy dasel duckdb freetube kepubify koreader moar pandoc sqlpage 
 
 # show package name and version
