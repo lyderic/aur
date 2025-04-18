@@ -1,6 +1,6 @@
 # Maintainer: Lydéric Landry <lyderic@lyderic.com>
 pkgname=pandoc-lyderic
-pkgver=3.6.2
+pkgver=3.6.4
 pkgrel=1
 pkgdesc="Universal markup converter"
 arch=('x86_64')
@@ -9,7 +9,7 @@ license=("GPL-2.0-or-later")
 provides=("pandoc" "pandoc-lua" "pandoc-server")
 conflicts=("pandoc" "pandoc-cli" "pandoc-lua" "pandoc-server")
 source=("https://github.com/jgm/pandoc/releases/download/${pkgver}/pandoc-${pkgver}-linux-amd64.tar.gz")
-sha256sums=('f11b3f21549f23e3d5b99dfacb96560c04c2f76027edb787c4d6551849acf54a')
+sha256sums=('5def6e1ff535e397becce292ee97767a947306150b9fb1488003b67ac3417c5e')
 
 package() {
 	install -Dm755 "${srcdir}/pandoc-${pkgver}/bin/pandoc" "${pkgdir}/usr/bin/pandoc"
