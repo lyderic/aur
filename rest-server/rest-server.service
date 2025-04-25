@@ -1,0 +1,13 @@
+[Unit]
+Description=Rest Server
+After=syslog.target network.target
+
+[Service]
+User=unix
+ExecStart=/usr/local/bin/rest-server --no-auth --path /home/unix/backup
+Restart=always
+RestartSec=5
+StartLimitInterval=0
+
+[Install]
+WantedBy=multi-user.target

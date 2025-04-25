@@ -11,3 +11,5 @@
 !**/PKGBUILD
 # Except markdown files
 !*.md
+# Except service files
+!*.service
