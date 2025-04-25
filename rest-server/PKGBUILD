@@ -12,7 +12,7 @@ conflicts=('rest-server')
 source=("rest-server_${pkgver}_linux_amd64.tar.gz::https://github.com/restic/rest-server/releases/download/v${pkgver}/rest-server_${pkgver}_linux_amd64.tar.gz"
 	"rest-server.service")
 sha256sums=('b7f357628a2cf9bdbce56a44b0ae7125de79b72af55b232a5c1aec3f732f3a49'
-            '57befa3323ed69539832c7c4b6e61a8f70dcfa72218e8bbf654cbfab750517e7')
+            'e4a536c88f38fde5a3c7f12989df3ab83d83dcdf46f3e819a82f8ad7b8c81e1b')
 
 package() {
 	install -Dm755 "${srcdir}/rest-server_${pkgver}_linux_amd64/rest-server" "${pkgdir}/usr/bin/rest-server"
