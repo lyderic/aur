@@ -1,0 +1,25 @@
+# Maintainer: Lydéric Landry <lyderic@lyderic.com>
+pkgname=rest-server-lyderic
+pkgver=0.13.0
+pkgrel=1
+pkgdesc="High performance HTTP server that implements restic's REST backend API"
+depends=("restic")
+arch=('x86_64')
+url="https://github.com/restic/rest-server"
+license=('BSD-2-Clause')
+provides=('rest-server')
+conflicts=('rest-server')
+source=("rest-server_${pkgver}_linux_amd64.tar.gz::https://github.com/restic/rest-server/releases/download/v${pkgver}/rest-server_${pkgver}_linux_amd64.tar.gz"
+	"rest-server.service")
+sha256sums=('b7f357628a2cf9bdbce56a44b0ae7125de79b72af55b232a5c1aec3f732f3a49'
+            '57befa3323ed69539832c7c4b6e61a8f70dcfa72218e8bbf654cbfab750517e7')
+
+package() {
+	install -Dm755 "${srcdir}/rest-server_${pkgver}_linux_amd64/rest-server" "${pkgdir}/usr/bin/rest-server"
+	if ! id -u unix &>/dev/null || [ "$(id -u unix)" -ne 1000 ]; then
+		echo "Error: User 'unix' with UID 1000 does not exist."
+		return 1  # Exit with a non-zero status to indicate failure
+	fi
+	mkdir -pv /home/unix/backup ; chown -Rv unix:unix /home/unix/backup
+	install -Dm644 "${srcdir}/rest-server.service" "${pkgdir}/etc/systemd/system/rest-server.service"
+}
