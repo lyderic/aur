@@ -51,7 +51,7 @@ checksums $package:
 
 # remove everything in <package> except PKGBUILD
 clean $package: (_check_is_package package)
-	rm -rvf ${package}/{pkg,src} ${package}/*.{tar.gz,tgz,zip,gz}
+	rm -rvf ${package}/{pkg,src} ${package}/*.{tar.gz,tgz,zip,gz,pkg.tar.zst}
 
 # remove everything in all packages except PKGBUILD
 clean-all:
