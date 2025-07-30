@@ -1,6 +1,6 @@
 # Maintainer: Lydéric Landry <lyderic@lyderic.com>
 pkgname=rest-server-lyderic
-pkgver=0.13.0
+pkgver=0.14.0
 pkgrel=1
 pkgdesc="High performance HTTP server that implements restic's REST backend API"
 depends=("restic")
@@ -11,7 +11,7 @@ provides=('rest-server')
 conflicts=('rest-server')
 source=("rest-server_${pkgver}_linux_amd64.tar.gz::https://github.com/restic/rest-server/releases/download/v${pkgver}/rest-server_${pkgver}_linux_amd64.tar.gz"
 	"rest-server.service")
-sha256sums=('b7f357628a2cf9bdbce56a44b0ae7125de79b72af55b232a5c1aec3f732f3a49'
+sha256sums=('4c9c95bc079a0334e81fad379b19dc5c3353c71c2c88d652cafce2081c2b1c66'
             'e4a536c88f38fde5a3c7f12989df3ab83d83dcdf46f3e819a82f8ad7b8c81e1b')
 
 package() {
