@@ -1,6 +1,6 @@
 #Maintainer: Lydéric Landry <lyderic@lyderic.com>
 pkgname=moar-lyderic
-pkgver=1.31.0
+pkgver=1.33.0
 pkgrel=1
 pkgdesc="A pager designed to just do the right thing without any configuration."
 arch=('x86_64')
@@ -9,7 +9,7 @@ license=('BSD-2-Clause-Views')
 provides=('moar')
 conflicts=('moar')
 source=("https://github.com/walles/moar/releases/download/v${pkgver}/moar-v${pkgver}-linux-amd64")
-sha256sums=('cb10855a8a3fbe3d76d034faa87763916d71e6b167deee3692b11a365a9aed18')
+sha256sums=('7a5092601ffc7d6c4224ba5ac578e6c5752c7c107f9e3f5b3b4ae4ff546edf0b')
 
 package() {
 	install -Dm755 "${srcdir}/moar-v${pkgver}-linux-amd64" "${pkgdir}/usr/bin/moar"
