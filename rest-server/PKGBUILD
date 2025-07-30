@@ -17,8 +17,8 @@ sha256sums=('4c9c95bc079a0334e81fad379b19dc5c3353c71c2c88d652cafce2081c2b1c66'
 package() {
 	install -Dm755 "${srcdir}/rest-server_${pkgver}_linux_amd64/rest-server" "${pkgdir}/usr/bin/rest-server"
 	if ! id -u unix &>/dev/null || [ "$(id -u unix)" -ne 1000 ]; then
-		echo "Error: User 'unix' with UID 1000 does not exist."
-		return 1  # Exit with a non-zero status to indicate failure
+		echo -e "\e[33mWarning: user 'unix' with UID 1000 not found.\e[m"
+		return 0 # we stop here. If there is no 'unix' user, then we only need to install the binary
 	fi
 	mkdir -pv /home/unix/backup ; chown -Rv unix:unix /home/unix/backup
 	install -Dm644 "${srcdir}/rest-server.service" "${pkgdir}/etc/systemd/system/rest-server.service"
