@@ -1,6 +1,6 @@
 # Maintainer: Lydéric Landry <lyderic@lyderic.com>
 pkgname=freetube-lyderic
-pkgver=0.23.7
+pkgver=0.23.8
 pkgrel=1
 pkgdesc="An Open Source YouTube app for privacy"
 arch=('x86_64')
@@ -13,7 +13,7 @@ conflicts=('freetube.AppImage')
 freetubeAppImage="freetube-${pkgver}-beta-amd64.AppImage"
 noextract=("${freetubeAppImage}")
 source=("https://github.com/FreeTubeApp/FreeTube/releases/download/v${pkgver}-beta/${freetubeAppImage}")
-sha256sums=('69a9c1ad04bbe11211d30d7904851f81d2f70effe83363c1bbb01364c3f1cdba')
+sha256sums=('3dc07f4517071302ce72b73989f92ee6d7409d8297b233f114fd42faa9afbaa0')
 options=("!strip")
 
 prepare() {
