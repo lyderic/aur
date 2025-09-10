@@ -13,7 +13,7 @@ list:
 
 # install packages needed on a workstation
 install-workstation:
-	just deploy dasel duckdb freetube kepubify koreader moar pandoc sqlpage 
+	just deploy balena-etcher dasel duckdb freetube kepubify koreader moar pandoc sqlpage 
 
 # show package name and version
 show $package:
