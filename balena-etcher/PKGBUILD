@@ -6,12 +6,20 @@ pkgdesc="Flash OS images to SD cards & USB drives, safely and easily."
 arch=('x86_64')
 url="https://etcher.io"
 license=('Apache-2.0')
+#depends=('unzip')
 provides=('balena-etcher')
 conflicts=('balena-etcher')
-source=("balenaEtcher-linux-x64-${pkgver}.zip::https://github.com/balena-io/etcher/releases/download/v${pkgver}/balenaEtcher-linux-x64-${pkgver}.zip")
-sha256sums=('SKIP')
+source=("balenaEtcher-linux-x64-${pkgver}.zip::https://github.com/balena-io/etcher/releases/download/v${pkgver}/balenaEtcher-linux-x64-${pkgver}.zip" "balena-etcher.desktop" "balena-etcher.png")
+sha256sums=('b0e08f001cc15cb0d648832db1d23273aa6ff25111bc104b8bc1f794aa9616d9'
+            '057840a7072ec8eb1895828026ed1cb2e2198c15dd3bcd0e6c85de3d9c7a4539'
+            '21762dedff586bffa6fb48fdeedd32dc8e7aa5fb3b4424e2865033857a52a547')
 
 package() {
-	install -Dm755 "${srcdir}/balenaEtcher-linux-x64" "${pkgdir}/opt/balena-etcher"
-	ln -s /opt/etcher/balena-etcher /usr/bin/balena-etcher
+	mkdir -pv ${pkgdir}/opt
+	mkdir -pv ${pkgdir}/usr/bin
+	cp -r "${srcdir}/balenaEtcher-linux-x64" "${pkgdir}/opt"
+	chmod 755 "${pkgdir}/opt/balenaEtcher-linux-x64"
+	install -Dm644 "${srcdir}/balena-etcher.desktop" "${pkgdir}/usr/share/applications/balena-etcher.desktop"
+	install -Dm644 "${srcdir}/balena-etcher.png" "${pkgdir}/usr/share/pixmaps/balena-etcher.png"
+	ln -vs /opt/balenaEtcher-linux-x64/balena-etcher ${pkgdir}/usr/bin/balena-etcher
 }
