@@ -1,0 +1,17 @@
+# Maintainer: Lydéric Landry <lyderic@lyderic.com>
+pkgname=balena-etcher-lyderic
+pkgver=2.1.4
+pkgrel=1
+pkgdesc="Flash OS images to SD cards & USB drives, safely and easily."
+arch=('x86_64')
+url="https://etcher.io"
+license=('Apache-2.0')
+provides=('balena-etcher')
+conflicts=('balena-etcher')
+source=("balenaEtcher-linux-x64-${pkgver}.zip::https://github.com/balena-io/etcher/releases/download/v${pkgver}/balenaEtcher-linux-x64-${pkgver}.zip")
+sha256sums=('SKIP')
+
+package() {
+	install -Dm755 "${srcdir}/balenaEtcher-linux-x64" "${pkgdir}/opt/balena-etcher"
+	ln -s /opt/etcher/balena-etcher /usr/bin/balena-etcher
+}
