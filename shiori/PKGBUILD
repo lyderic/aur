@@ -8,12 +8,13 @@ url="https://github.com/go-shiori/shiori"
 license=('MIT')
 provides=('shiori')
 conflicts=('shiori')
-source=("shiori_Linux_x86_64_${pkgver}.tar.gz::https://github.com/go-shiori/shiori/releases/download/v${pkgver}/shiori_Linux_x86_64_${pkgver}.tar.gz")
-sha256sums=('20552c4d91c720dc9786d73a7f5b68abd9ed32addb177861f89ea5d4e5937d3f')
+source=("shiori_Linux_x86_64_${pkgver}.tar.gz::https://github.com/go-shiori/shiori/releases/download/v${pkgver}/shiori_Linux_x86_64_${pkgver}.tar.gz"
+	"shiori.service")
+sha256sums=('20552c4d91c720dc9786d73a7f5b68abd9ed32addb177861f89ea5d4e5937d3f'
+            '1d5e5c12c0094191ec4ea905d2bb130c1310eeffe877c81fd7139d79de427ef1')
 
 package() {
 	install -Dm755 "${srcdir}/shiori" "${pkgdir}/usr/bin/shiori"
-	mkdir -pv /home/unix/shiori
-	chown -Rv unix:unix /home/unix/shiori
+	mkdir -pv /home/unix/shiori ; chown -Rv unix:unix /home/unix/shiori
 	install -Dm644 "${srcdir}/shiori.service" "${pkgdir}/etc/systemd/system/shiori.service"
 }
