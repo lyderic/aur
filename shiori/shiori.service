@@ -1,0 +1,14 @@
+[Unit]
+Description=shiori service
+Requires=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/shiori server --storage-directory=/home/unix/shiori --address 127.0.0.1 --port 8080
+Restart=always
+User=unix
+Group=unix
+
+[Install]
+WantedBy=multi-user.target

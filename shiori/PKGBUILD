@@ -13,4 +13,7 @@ sha256sums=('20552c4d91c720dc9786d73a7f5b68abd9ed32addb177861f89ea5d4e5937d3f')
 
 package() {
 	install -Dm755 "${srcdir}/shiori" "${pkgdir}/usr/bin/shiori"
+	mkdir -pv /home/unix/shiori
+	chown -Rv unix:unix /home/unix/shiori
+	install -Dm644 "${srcdir}/shiori.service" "${pkgdir}/etc/systemd/system/shiori.service"
 }
