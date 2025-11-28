@@ -1,6 +1,6 @@
 # Maintainer: Lydéric Landry <lyderic@lyderic.com>
 pkgname=juicefs-lyderic
-pkgver=1.2.4
+pkgver=1.3.0
 pkgrel=1
 pkgdesc="Distributed POSIX file system built on top of Redis and S3."
 arch=('x86_64')
@@ -9,7 +9,7 @@ license=('Apache-2.0')
 provides=('juicefs')
 conflicts=('juicefs')
 source=("juicefs-${pkgver}-linux-amd64.tar.gz::https://github.com/juicedata/juicefs/releases/download/v${pkgver}/juicefs-${pkgver}-linux-amd64.tar.gz")
-sha256sums=('b21ee0344a7222775a2a873c514776f629b83979a637bcd098c4ac90fe844603')
+sha256sums=('53cbdc9e6736e576108aadeb5d10cccba4bbb44c50b0d48e0497a3f25d567153')
 
 package() {
 	install -Dm755 "${srcdir}/juicefs" "${pkgdir}/usr/bin/juicefs"
