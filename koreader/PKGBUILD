@@ -1,6 +1,6 @@
 # Maintainer: Lydéric Landry <lyderic@lyderic.com>
 pkgname=koreader-lyderic
-pkgver=2025.10
+pkgver=2026.03
 pkgrel=1
 pkgdesc="ebook reader application supporting PDF, DjVu, EPUB, FB2 and many more formats"
 arch=('x86_64')
@@ -10,22 +10,26 @@ url="http://koreader.rocks/"
 license=('AGPL3')
 provides=('koreader.AppImage')
 conflicts=('koreader.AppImage')
-koreaderAppImage="koreader-appimage-x86_64-v${pkgver}.AppImage"
+koreaderAppImage="koreader-v${pkgver}-x86_64.AppImage"
 noextract=("${koreaderAppImage}")
 source=("https://github.com/koreader/koreader/releases/download/v${pkgver}/${koreaderAppImage}")
-sha256sums=('712f94c014a4e24420b7da1935759861cb286d3207a094e5a849be9077c620b9')
+sha256sums=('2767db0e38c5ee88b2324bb2de88693982585831ecd9b19bf90d3e3a8436d224')
 options=("!strip")
 
 prepare() {
 	cd "${srcdir}"
 	mv -iv "${koreaderAppImage}" "koreader.AppImage"
-	7z x "${srcdir}/koreader.AppImage" koreader.png
-	7z x "${srcdir}/koreader.AppImage" koreader.desktop
-	sed -i 's@Exec=.*@Exec=/usr/bin/koreader.AppImage %u@' koreader.desktop	
+	#7z x "${srcdir}/koreader.AppImage" koreader.png
+	#7z x "${srcdir}/koreader.AppImage" koreader.desktop
+	#sed -i 's@Exec=.*@Exec=/usr/bin/koreader.AppImage %u@' koreader.desktop	
+	cp -iv ../koreader.desktop .
+	cp -iv ../koreader.png .
 }
 
 package() {
 	install -Dm755 "${srcdir}/koreader.AppImage" "${pkgdir}/usr/bin/koreader.AppImage"
 	install -Dm644 "${srcdir}/koreader.desktop" "${pkgdir}/usr/share/applications/koreader.desktop"
 	install -Dm644 "${srcdir}/koreader.png" "${pkgdir}/usr/share/pixmaps/koreader.png"
+	#install -Dm644 "koreader.desktop" "${pkgdir}/usr/share/applications/koreader.desktop"
+	#install -Dm644 "koreader.png" "${pkgdir}/usr/share/pixmaps/koreader.png"
 }
