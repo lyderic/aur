@@ -53,7 +53,7 @@ checksums $package:
 clean $package: (_check_is_package package)
 	rm -rvf ${package}/{pkg,src} ${package}/*.{tar.gz,tgz,zip,gz,pkg.tar.zst}
 
-# remove everything in all packages except PKGBUILD
+# remove everything in all packages except PKGBUILD and deps
 clean-all:
 	#!/bin/bash
 	for package in $(ls -d */) ; do

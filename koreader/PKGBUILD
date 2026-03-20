@@ -19,6 +19,9 @@ options=("!strip")
 prepare() {
 	cd "${srcdir}"
 	mv -iv "${koreaderAppImage}" "koreader.AppImage"
+	# in version 2026-03, there were not koreader.{desktop,png} files in
+	# the AppImage, hence the next 3 lines failed. I copied the previous
+	# koreader.* file from /usr/share/xxx and I now deploy then directly
 	#7z x "${srcdir}/koreader.AppImage" koreader.png
 	#7z x "${srcdir}/koreader.AppImage" koreader.desktop
 	#sed -i 's@Exec=.*@Exec=/usr/bin/koreader.AppImage %u@' koreader.desktop	
@@ -30,6 +33,4 @@ package() {
 	install -Dm755 "${srcdir}/koreader.AppImage" "${pkgdir}/usr/bin/koreader.AppImage"
 	install -Dm644 "${srcdir}/koreader.desktop" "${pkgdir}/usr/share/applications/koreader.desktop"
 	install -Dm644 "${srcdir}/koreader.png" "${pkgdir}/usr/share/pixmaps/koreader.png"
-	#install -Dm644 "koreader.desktop" "${pkgdir}/usr/share/applications/koreader.desktop"
-	#install -Dm644 "koreader.png" "${pkgdir}/usr/share/pixmaps/koreader.png"
 }
