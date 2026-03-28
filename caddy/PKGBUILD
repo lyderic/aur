@@ -1,6 +1,6 @@
 # Maintainer: Lydéric Landry <lyderic@lyderic.com>
 pkgname=caddy-lyderic
-pkgver=2.10.2
+pkgver=2.11.2
 pkgrel=1
 pkgdesc="Fast and extensible web server with automatic HTTPS with Cloudflare DNS plugin"
 arch=('x86_64')
@@ -8,8 +8,8 @@ url="https://caddyserver.com/"
 license=('Apache-2.0')
 provides=('caddy')
 conflicts=('caddy')
-source=("caddy-cloudflare-linux-amd64-${pkgver}::https://caddyserver.com/api/download?os=linux&arch=amd64&p=github.com%2Fcaddy-dns%2Fcloudflare" "caddy.service")
-sha256sums=('10026948a786f165e7738bee0cb3f02e79a70e6029696427aa4cca01b2a9542d'
+source=("caddy-cloudflare-linux-amd64-${pkgver}" "caddy.service")
+sha256sums=('57cc042038ff0f17aa8590970005a9bc0c75a1afb39787dcef34835221c9c163'
             '5c36c8f734f482770207b969d6e43ae3fd862d8d86c339f8fa317b12faaddf53')
 
 package() {
