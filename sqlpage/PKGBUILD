@@ -1,6 +1,6 @@
 # Maintainer: Lydéric Landry <lyderic@lyderic.com>
 pkgname=sqlpage-lyderic
-pkgver=0.43.0
+pkgver=0.44.1
 pkgrel=1
 pkgdesc="Fast SQL-only data application builder"
 arch=('x86_64')
@@ -9,7 +9,7 @@ license=('MIT')
 provides=('sqlpage')
 conflicts=('sqlpage')
 source=("sqlpage-linux-${pkgver}.tgz::https://github.com/sqlpage/SQLPage/releases/download/v${pkgver}/sqlpage-linux.tgz")
-sha256sums=('136c3f9b56448304d4f6dc85dd279a67c49ca32c16deb2a3c38f35519c2626f3')
+sha256sums=('929d340b8b193c16748a3ddc064ee9d591a646ef7e421f32f5e23a5d95ed62b9')
 
 package() {
 	install -Dm755 "${srcdir}/sqlpage.bin" "${pkgdir}/usr/bin/sqlpage"
