@@ -1,6 +1,6 @@
 # Maintainer: Lydéric Landry <lyderic@lyderic.com>
 pkgname=koreader-lyderic
-pkgver=2026.03
+pkgver=2026.07.1
 pkgrel=1
 pkgdesc="ebook reader application supporting PDF, DjVu, EPUB, FB2 and many more formats"
 arch=('x86_64')
@@ -13,7 +13,7 @@ conflicts=('koreader.AppImage')
 koreaderAppImage="koreader-v${pkgver}-x86_64.AppImage"
 noextract=("${koreaderAppImage}")
 source=("https://github.com/koreader/koreader/releases/download/v${pkgver}/${koreaderAppImage}")
-sha256sums=('2767db0e38c5ee88b2324bb2de88693982585831ecd9b19bf90d3e3a8436d224')
+sha256sums=('e60ed106cf4e824d50394a259b3aa6c46fb1daee189df73a1734e5732b5dc245')
 options=("!strip")
 
 prepare() {
